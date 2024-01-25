@@ -1,12 +1,16 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Cadastro from './components/Cadastro/Cadastro';
+import CadastroCandidato from './components/Cadastro/CadastroCandidato';
+import CadastroRecrutador from './components/Cadastro/CadastroRecrutador';
 
 function App() {
   return (
-    <div className="App">
-      <Cadastro />
-    </div>
+    <Router>
+      <Route path="/" exact component={Cadastro} />
+      <Route path="/cadastro-candidato" exact component={CadastroCandidato} />
+      <Route path="/cadastro-recrutador" exact component={CadastroRecrutador} />
+    </Router>
   );
 }
 

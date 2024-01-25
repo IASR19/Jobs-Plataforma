@@ -53,7 +53,6 @@ const Cadastro = () => {
       } else if (opcaoSelecionada === 'RECRUTADOR') {
         history.push('/cadastro-recrutador');
       }
-      // Você também pode adicionar lógica adicional aqui se necessário
     }
   };
 
