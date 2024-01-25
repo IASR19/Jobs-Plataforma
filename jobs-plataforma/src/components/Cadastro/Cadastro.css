@@ -1,63 +1,71 @@
 .cadastro-container {
-    display: flex;
-    flex-direction: column;
-    align-items: top;
-    background-color: #f5f8ff;
-    padding: 20rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .cadastro-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #4f46e5;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-  
-  .cadastro-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .cadastro-label {
-    font-size: 1.2rem;
-    color: #4f46e5;
-    margin-bottom: 1rem;
-    text-align: left;
-    width: 100%;
-  }
-  
-  .cadastro-select {
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    border-radius: 4px;
-    border: 1px solid #4f46e5;
-    color: #4f46e5;
-    margin-bottom: 2rem;
-    width: 100%;
-  }
-  
-  .cadastro-button {
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    border-radius: 32px;
-    cursor: pointer;
-    margin-right: 1rem;
-    width: 100%;
-  }
-  
-  .cadastro-button-primary {
-    background-color: #4f46e5;
-    color: #fff;
-    border: none;
-  }
-  
-  .cadastro-button-secondary {
-    background-color: transparent;
-    color: #4f46e5;
-    border: 1px solid #4f46e5;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  background-color: #f5f8ff;
+  padding: 20rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.cadastro-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #4f46e5;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cadastro-label {
+  font-size: 1.2rem;
+  color: #4f46e5;
+  margin-bottom: 1rem;
+  text-align: left;
+  width: 100%;
+}
+
+.cadastro-select {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  border: 1px solid #4f46e5;
+  color: #4f46e5;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.cadastro-button {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 32px;
+  cursor: pointer;
+  margin-right: 1rem;
+  width: 100%;
+}
+
+.cadastro-button-primary {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+}
+
+.cadastro-button-secondary {
+  background-color: transparent;
+  color: #4f46e5;
+  border: 1px solid #4f46e5;
+}
+
+/* Novo estilo para a mensagem em vermelho */
+.mensagem-vermelha {
+  color: #ff0000;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
