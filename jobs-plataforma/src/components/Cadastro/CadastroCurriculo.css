@@ -1,0 +1,61 @@
+.cadastro-curriculo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f8ff;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .cadastro-curriculo-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4f46e5;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  /* ... (códigos anteriores) ... */
+  
+  label {
+    font-size: 1rem;
+    color: #4f46e5;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  /* Adicione este estilo para a área de Cursos Complementares */
+  label[for="cursosComplementares"] {
+    margin-top: 1.5rem;
+  }
+  
+  textarea {
+    min-height: 100px; /* Ajuste conforme necessário */
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 32px;
+    cursor: pointer;
+    background-color: #4f46e5;
+    color: #fff;
+    border: none;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .mensagem-erro {
+    color: #ff0000;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
