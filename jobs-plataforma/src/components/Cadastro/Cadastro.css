@@ -1,13 +1,15 @@
 .cadastro-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f5f8ff;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  width: 80%;
-  margin: 0 auto;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 32px;
+    background-color: #f5f8ff;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .cadastro-title {
@@ -73,9 +75,9 @@
 /* Novo estilo para a mensagem em vermelho */
 .mensagem-vermelha {
   color: #ff0000;
-  font-size: 1rem;
+  margin-bottom: 1rem;
   text-align: center;
-  margin-top: 1rem;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
