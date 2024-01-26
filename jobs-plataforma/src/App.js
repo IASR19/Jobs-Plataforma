@@ -1,15 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import Login from './components/Login/Login';
 import Cadastro from './components/Cadastro/Cadastro';
-import CadastroCandidato from './components/Cadastro/CadastroCandidato';
-import CadastroRecrutador from './components/Cadastro/CadastroRecrutador';
 
 function App() {
   return (
     <Router>
-      <Route path="/" exact component={Cadastro} />
-      <Route path="/cadastro-candidato" exact component={CadastroCandidato} />
-      <Route path="/cadastro-recrutador" exact component={CadastroRecrutador} />
+      <div>
+        {/* Redirecionar "/" para "/login" */}
+        <Redirect exact from="/" to="/login" />
+
+        {/* Rota para o componente Login */}
+        <Route path="/login" exact component={Login} />
+
+        {/* Rota para o componente Cadastro */}
+        <Route path="/cadastro" exact component={Cadastro} />
+      </div>
     </Router>
   );
 }

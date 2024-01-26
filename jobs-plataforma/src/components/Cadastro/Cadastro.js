@@ -13,33 +13,26 @@ const Cadastro = () => {
   const handleOpcaoChange = (event) => {
     const novaOpcao = event.target.value;
 
-    // Verificar se a opção selecionada é a opção padrão
     if (novaOpcao === '') {
       setBotaoAvancarHabilitado(false);
       setMensagemErro('Selecione corretamente');
     } else {
-      // Limpar a mensagem de erro quando uma nova opção é selecionada
       setBotaoAvancarHabilitado(true);
       setMensagemErro('');
     }
 
-    // Definir a nova opção selecionada
     setOpcaoSelecionada(novaOpcao);
   };
 
   const handleAvancarClick = async () => {
-    // Verificar se a opção selecionada é válida
     if (!botaoAvancarHabilitado) {
       setMensagemErro('Selecione corretamente');
-      return; // Não prosseguir se a opção não for válida
+      return;
     }
 
-    // Limpar a mensagem de erro se a opção for válida
     setMensagemErro('');
 
-    // Realizar o redirecionamento com base na opção selecionada
     if (opcaoSelecionada === 'CANDIDATO' || opcaoSelecionada === 'RECRUTADOR') {
-      // Enviar a opção escolhida para o servidor
       try {
         await axios.post('http://localhost:5000/api/saveOption', { tipo: opcaoSelecionada });
         console.log('Opção enviada para o servidor com sucesso!');
@@ -47,13 +40,17 @@ const Cadastro = () => {
         console.error('Erro ao enviar a opção para o servidor:', error);
       }
 
-      // Redirecionar para a página apropriada
       if (opcaoSelecionada === 'CANDIDATO') {
         history.push('/cadastro-candidato');
       } else if (opcaoSelecionada === 'RECRUTADOR') {
         history.push('/cadastro-recrutador');
       }
     }
+  };
+
+  const handleVoltarClick = () => {
+    // Redirecionar para a tela de login
+    history.push('/login');
   };
 
   return (
@@ -72,9 +69,10 @@ const Cadastro = () => {
       >
         Avançar
       </button>
-      <button className="cadastro-button cadastro-button-secondary">Voltar</button>
+      <button className="cadastro-button cadastro-button-secondary" onClick={handleVoltarClick}>
+        Voltar
+      </button>
 
-      {/* Exibir a mensagem de erro em vermelho */}
       {mensagemErro && <p style={{ color: 'red' }}>{mensagemErro}</p>}
     </div>
   );

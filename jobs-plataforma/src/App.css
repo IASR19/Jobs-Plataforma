@@ -1,3 +1,4 @@
+/* Estilo padrão */
 .App {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -22,4 +23,18 @@ button {
 
 button:hover {
   background-color: #45a049;
+}
+
+/* Adaptação para telas menores (exemplo: tablets) */
+@media (max-width: 768px) {
+  .App {
+    padding: 1rem;
+  }
+}
+
+/* Adaptação para telas pequenas (exemplo: smartphones) */
+@media (max-width: 480px) {
+  select, button {
+    width: 100%;
+  }
 }
