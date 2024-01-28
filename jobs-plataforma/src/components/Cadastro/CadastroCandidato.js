@@ -21,6 +21,22 @@ const CadastroCandidato = () => {
       return;
     }
 
+    // Criar um objeto com as informações do candidato
+    const candidatoData = {
+      nome,
+      sobrenome,
+      cpf,
+      email,
+      senha,
+      areaInteresse,
+    };
+
+    // Converter o objeto para JSON
+    const candidatoJson = JSON.stringify(candidatoData);
+
+    // Imprimir o JSON no console (pode ser enviado para o servidor ou usado conforme necessário)
+    console.log(candidatoJson);
+
     // Aqui você pode adicionar a lógica para enviar os dados para o servidor ou realizar outras ações necessárias
     // Neste exemplo, estamos apenas redirecionando para a tela de planos-candidato após o cadastro
     history.push('/cadastro-curriculo');

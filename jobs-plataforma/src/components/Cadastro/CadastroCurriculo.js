@@ -41,6 +41,23 @@ const CadastroCurriculo = () => {
   };
 
   const handleCadastroClick = () => {
+    // Criar um objeto com as informações do currículo
+    const curriculoData = {
+      telefone,
+      endereco,
+      formacao,
+      experiencia,
+      habilidades,
+      cursosComplementares,
+      idiomasRegistrados,
+    };
+
+    // Converter o objeto para JSON
+    const curriculoJson = JSON.stringify(curriculoData);
+
+    // Imprimir o JSON no console (pode ser enviado para o servidor ou usado conforme necessário)
+    console.log(curriculoJson);
+
     // Aqui você pode adicionar a lógica para enviar os dados para o servidor ou realizar outras ações necessárias
     // Neste exemplo, estamos apenas redirecionando para a tela de login
     history.push('/login');
