@@ -21,6 +21,11 @@ const recrutadorSchema = new mongoose.Schema({
 
 const candidatoSchema = new mongoose.Schema({
   tipo: String,
+  nome: String,
+  sobrenome: String,
+  cpf: String,
+  email: String,
+  areaInteresse: String,
   telefone: String,
   endereco: String,
   formacao: String,

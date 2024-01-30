@@ -41,7 +41,7 @@ const Cadastro = () => {
       }
 
       if (opcaoSelecionada === 'CANDIDATO') {
-        history.push('/cadastro-candidato');
+        history.push('/cadastro-curriculo');
       } else if (opcaoSelecionada === 'RECRUTADOR') {
         history.push('/cadastro-recrutador');
       }

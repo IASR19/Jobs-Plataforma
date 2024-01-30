@@ -6,6 +6,13 @@ import './CadastroCurriculo.css';
 const CadastroCurriculo = () => {
   const history = useHistory();
 
+  const [nome, setNome] = useState('');
+  const [sobrenome, setSobrenome] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [confirmarSenha, setConfirmarSenha] = useState('');
+  const [areaInteresse, setAreaInteresse] = useState('');
   const [telefone, setTelefone] = useState('');
   const [endereco, setEndereco] = useState('');
   const [formacao, setFormacao] = useState('');
@@ -41,7 +48,18 @@ const CadastroCurriculo = () => {
   };
 
   const handleCadastroClick = async () => {
+    if (senha !== confirmarSenha) {
+      setMensagemErro('As senhas não coincidem. Por favor, digite novamente.');
+      return;
+    }
+
     const curriculoData = {
+      nome,
+      sobrenome,
+      cpf,
+      email,
+      senha,
+      areaInteresse,
       telefone,
       endereco,
       formacao,
@@ -66,6 +84,55 @@ const CadastroCurriculo = () => {
 
   return (
     <div className="cadastro-curriculo-container">
+      <h1 className="cadastro-candidato-title">Cadastro Candidato</h1>
+
+      <label htmlFor="nome">Nome</label>
+      <input type="text" id="nome" value={nome} onChange={(e) => setNome(e.target.value)} required />
+
+      <label htmlFor="sobrenome">Sobrenome</label>
+      <input
+        type="text"
+        id="sobrenome"
+        value={sobrenome}
+        onChange={(e) => setSobrenome(e.target.value)}
+        required
+      />
+
+      <label htmlFor="cpf">CPF</label>
+      <input type="text" id="cpf" value={cpf} onChange={(e) => setCpf(e.target.value)} required />
+
+      <label htmlFor="email">E-mail</label>
+      <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+
+      <label htmlFor="senha">Senha</label>
+      <input
+        type="password"
+        id="senha"
+        value={senha}
+        onChange={(e) => setSenha(e.target.value)}
+        required
+      />
+
+      <label htmlFor="confirmarSenha">Confirmar Senha</label>
+      <input
+        type="password"
+        id="confirmarSenha"
+        value={confirmarSenha}
+        onChange={(e) => setConfirmarSenha(e.target.value)}
+        required
+      />
+
+      <label htmlFor="areaInteresse">Área(s) de Interesse</label>
+      <input
+        type="text"
+        id="areaInteresse"
+        value={areaInteresse}
+        onChange={(e) => setAreaInteresse(e.target.value)}
+        required
+      />
+
+      {mensagemErro && <p className="mensagem-erro">{mensagemErro}</p>}
+
       <h1 className="cadastro-curriculo-title">Cadastro de Currículo</h1>
 
       <label htmlFor="telefone">Telefone</label>
