@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import './CadastroCandidato.css';
 
 const CadastroCandidato = () => {
@@ -14,14 +15,12 @@ const CadastroCandidato = () => {
   const [areaInteresse, setAreaInteresse] = useState('');
   const [mensagemErro, setMensagemErro] = useState('');
 
-  const handleCadastroClick = () => {
-    // Verificar se as senhas coincidem
+  const handleCadastroClick = async () => {
     if (senha !== confirmarSenha) {
       setMensagemErro('As senhas não coincidem. Por favor, digite novamente.');
       return;
     }
 
-    // Criar um objeto com as informações do candidato
     const candidatoData = {
       nome,
       sobrenome,
@@ -31,21 +30,19 @@ const CadastroCandidato = () => {
       areaInteresse,
     };
 
-    // Converter o objeto para JSON
-    const candidatoJson = JSON.stringify(candidatoData);
-
-    // Imprimir o JSON no console (pode ser enviado para o servidor ou usado conforme necessário)
-    console.log(candidatoJson);
-
-    // Aqui você pode adicionar a lógica para enviar os dados para o servidor ou realizar outras ações necessárias
-    // Neste exemplo, estamos apenas redirecionando para a tela de planos-candidato após o cadastro
-    history.push('/cadastro-curriculo');
+    try {
+      await axios.post('http://localhost:5000/salvarDados', { candidatoData });
+      history.push('/cadastro-curriculo');
+    } catch (error) {
+      console.error('Erro ao salvar dados:', error.message);
+      setMensagemErro('Erro ao salvar dados. Por favor, tente novamente.');
+    }
   };
 
   const handleVoltarClick = () => {
-    // Voltar para a tela de seleção (página inicial do cadastro)
     history.push('/cadastro');
   };
+
 
   return (
     <div className="cadastro-candidato-container">

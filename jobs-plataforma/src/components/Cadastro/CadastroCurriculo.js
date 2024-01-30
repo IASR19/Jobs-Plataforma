@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import './CadastroCurriculo.css';
 
 const CadastroCurriculo = () => {
@@ -16,7 +17,6 @@ const CadastroCurriculo = () => {
   const [idiomasRegistrados, setIdiomasRegistrados] = useState([]);
   const [mensagemErro, setMensagemErro] = useState('');
 
-  // Sugestões de idiomas
   const sugestoesIdiomas = ['Inglês', 'Espanhol', 'Francês', 'Alemão', 'Italiano', 'Outro'];
 
   const handleIdiomasChange = (event) => {
@@ -40,8 +40,7 @@ const CadastroCurriculo = () => {
     setMensagemErro('');
   };
 
-  const handleCadastroClick = () => {
-    // Criar um objeto com as informações do currículo
+  const handleCadastroClick = async () => {
     const curriculoData = {
       telefone,
       endereco,
@@ -52,19 +51,16 @@ const CadastroCurriculo = () => {
       idiomasRegistrados,
     };
 
-    // Converter o objeto para JSON
-    const curriculoJson = JSON.stringify(curriculoData);
-
-    // Imprimir o JSON no console (pode ser enviado para o servidor ou usado conforme necessário)
-    console.log(curriculoJson);
-
-    // Aqui você pode adicionar a lógica para enviar os dados para o servidor ou realizar outras ações necessárias
-    // Neste exemplo, estamos apenas redirecionando para a tela de login
-    history.push('/login');
+    try {
+      await axios.post('http://localhost:5000/api/saveOption', { tipo: 'CANDIDATO', curriculoData });
+      history.push('/login');
+    } catch (error) {
+      console.error('Erro ao salvar dados:', error.message);
+      setMensagemErro('Erro ao salvar dados. Por favor, tente novamente.');
+    }
   };
 
   const handleVoltarClick = () => {
-    // Voltar para a tela de seleção (página inicial do cadastro)
     history.push('/cadastro');
   };
 
@@ -121,7 +117,7 @@ const CadastroCurriculo = () => {
         <ul>
           {idiomasRegistrados.map((idioma, index) => (
             <li key={index}>
-              {idioma.idioma} - Nível: {idioma.nivel}
+              {idioma.idioma} - Nível {idioma.nivel}
             </li>
           ))}
         </ul>
